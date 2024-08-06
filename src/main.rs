@@ -1,7 +1,8 @@
 mod components;
-use components::navbar::Navbar;
 use components::counter::Counter;
+use components::navbar::Navbar;
 use leptos::*;
+use leptos_router::{Route, RouteProps, Router, RouterProps, Routes, RoutesProps};
 
 use log::{Level, LevelFilter, Log, Metadata, Record};
 
@@ -23,14 +24,27 @@ impl Log for SimpleLogger {
 #[component]
 fn App() -> impl IntoView {
     view! {
+        <Router>
         <div>
             <Navbar />
             <main>
-                <h1>"Welcome to My App!"</h1>
+                <Routes>
+                    <Route path="/" view=|| view! {
+                        <div>"Welcome to my app!"</div>
+                        <Counter initial_value=5 />
+                    }/>
+                    <Route path="/about" view=|| view! {
+                        <div>"About my app!"</div>
+                    }/>
+                    <Route path="/contact" view=|| view! {
+                        <div>"Contact me!"</div>
+                    }/>
+                </Routes>
             </main>
         </div>
 
-        <Counter initial_value=5 />
+        
+        </Router>
     }
 }
 
