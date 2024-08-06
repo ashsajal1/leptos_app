@@ -1,8 +1,10 @@
 mod components;
+mod pages;
 use components::counter::Counter;
 use components::navbar::Navbar;
 use leptos::*;
 use leptos_router::{Route, RouteProps, Router, RouterProps, Routes, RoutesProps, A};
+use pages::user::User;
 
 use log::{Level, LevelFilter, Log, Metadata, Record};
 
@@ -33,6 +35,9 @@ fn App() -> impl IntoView {
                         <div>"Welcome to my app!"</div>
                         <Counter initial_value=5 />
                     }/>
+                    <Route path="/user/:id" view=|| view! {<User />
+                    }
+                    />
                     <Route path="/about" view=|| view! {
                         <div>"About my app!"</div>
                     }/>
@@ -44,7 +49,7 @@ fn App() -> impl IntoView {
             </main>
         </div>
 
-        
+
         </Router>
     }
 }
