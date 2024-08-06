@@ -2,7 +2,7 @@ mod components;
 use components::counter::Counter;
 use components::navbar::Navbar;
 use leptos::*;
-use leptos_router::{Route, RouteProps, Router, RouterProps, Routes, RoutesProps};
+use leptos_router::{Route, RouteProps, Router, RouterProps, Routes, RoutesProps, A};
 
 use log::{Level, LevelFilter, Log, Metadata, Record};
 
@@ -38,6 +38,7 @@ fn App() -> impl IntoView {
                     }/>
                     <Route path="/contact" view=|| view! {
                         <div>"Contact me!"</div>
+                        <A href="/">"Go to home"</A>
                     }/>
                 </Routes>
             </main>
