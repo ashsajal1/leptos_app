@@ -1,10 +1,14 @@
 use leptos::*;
+use log;
 
 #[component]
 pub fn Counter(initial_value: i32) -> impl IntoView {
     // create a reactive signal with the initial value
     let (value, set_value) = create_signal(initial_value);
 
+    create_effect(move |_| {
+        log::info!("Count has changed: {:?}", value);
+    });
     // create event handlers for our buttons
     // note that `value` and `set_value` are `Copy`, so it's super easy to move them into closures
     let clear = move |_| set_value.set(0);

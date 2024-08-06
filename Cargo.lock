@@ -509,6 +509,7 @@ name = "leptos_app"
 version = "0.1.0"
 dependencies = [
  "leptos",
+ "log",
 ]
 
 [[package]]
