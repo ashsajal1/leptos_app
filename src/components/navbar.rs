@@ -3,7 +3,7 @@ use leptos::*;
 #[component]
 pub fn Navbar() -> impl IntoView {
     view! {
-        <nav>
+        <nav class="p-2 bg-gray-800">
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
